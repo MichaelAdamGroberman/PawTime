@@ -18,7 +18,8 @@
 
   * `VetinarianVisits`
     * `id`: primary key
-    * `date`
+    * `dateTime`
+    * `Location`
     * `description`
     * `pet_id`: foreign key that references `Pet.id`
 
