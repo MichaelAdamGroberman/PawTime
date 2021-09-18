@@ -43,3 +43,5 @@ Appointments.init(
         modelName: 'appointments',
     }
 );
+
+module.exports = Appointments;
