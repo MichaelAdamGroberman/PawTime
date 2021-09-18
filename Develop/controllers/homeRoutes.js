@@ -1,7 +1,19 @@
 const router = require('express').Router(); 
 const withAuth = require('../utils/auth');
- 
-router.get('/', withAuth, async (req, res) => {
+
+// TODO: for landing page without authentication
+router.get('/', async (req, res) => {
+  try {   
+    // Route for rendeing homepage
+    res.render('landingpage', {
+      // QUESTION: empty ???
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/home', withAuth, async (req, res) => {
   try {   
     // Route for rendeing homepage
     res.render('homepage', {
