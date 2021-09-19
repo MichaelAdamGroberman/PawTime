@@ -1,7 +1,7 @@
 const User = require('./user');
 const Pet = require('./pet');
 const Notes = require('./notes');
-const Appointments = require('./Appointments');
+const Appointments = require('./appointments');
 const Vaccinations = require('./vaccinations');
 const Exercise = require('./exercise'); 
 
@@ -24,7 +24,7 @@ Notes.belongsTo(Pet, {
 });
 
 Pet.hasMany(Appointments, {
-    foreignKey: 'pet_id,
+    foreignKey: 'pet_id',
     onDelete: 'CASCADE'
 });
 
@@ -33,7 +33,7 @@ Appointments.belongsTo(Pet, {
 });
 
 Pet.hasMany(Vaccinations, {
-    foreignKey: 'pet_id,
+    foreignKey: 'pet_id',
     onDelete: 'CASCADE'
 });
 
@@ -42,7 +42,7 @@ Vaccinations.belongsTo(Pet, {
 });
 
 Pet.hasMany(Exercise, {
-    foreignKey: 'pet_id,
+    foreignKey: 'pet_id',
     onDelete: 'CASCADE'
 });
 
