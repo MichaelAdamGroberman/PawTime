@@ -1,19 +1,53 @@
 const router = require('express').Router();
+const { User } = require('../../models');
 
 // Route to handle posting of user which will be used for Sign up screen 
 // Create User
 router.post('/', async (req, res) => {
   try {
-    //TODO: Capture the req.body and save the values to database to create the new user
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
 
+
 // Read User Information for login
 router.post('/login', async (req, res) => {
   try {
-     //TODO: Use the credentials posted by the user to verify the login 
+    const userData = await User.findOne({ where: { email: req.body.email } });
+
+    if (!userData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    const validPassword = await userData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+
   } catch (err) {
     res.status(400).json(err);
   }
