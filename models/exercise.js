@@ -24,7 +24,7 @@ Exercise.init(
             allowNull: false,
         },
         duration: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false, 
         },
         pet_id: {
