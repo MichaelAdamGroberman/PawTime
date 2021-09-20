@@ -9,20 +9,21 @@
   </head>
 
   <body>
-    <nav class='navbar navbar-expand-lg navbar-light bg-light mt-2'>
+    <nav class='navbar navbar-expand-lg navbar-light bg-light mt-2 d-flex bd-highlight mb-3'>
 
-      <a class='navbar-brand' href='/'>
+      <a class='navbar-brand mr-auto p-2' href='/'>
         <img src='/images/PawTime_logo.png' width='30' height='30' class='d-inline-block align-top' alt='' />Paw Time
       </a>
       {{!-- TODO: uncomment if logged --}}
       {{!-- {{#if logged_in}} --}}
-      <ul class='nav nav-pills mb-3' role='tablist'>
-        <li class='nav-item'>
-          <a class='nav-link active' id='pills-home-tab' data-toggle='pill' href='/profile' role='tab' aria-controls='pills-home' aria-selected='true'>Profile</a>
+      <ul class='nav nav-pills p-2' role='tablist'>
+        <li class="nav-item">
+          {{!-- profile will be a dropped down --}}
+          <a class="nav-link" href="/profile">Profile <span class="sr-only">(current)</span></a>
         </li>
 
-        <li class='nav-item'>
-          <a class='nav-link' id='pills-contact-tab' data-toggle='pill' href='/logout' role='tab' aria-controls='pills-contact' aria-selected='false'>Logout</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
         </li>
       </ul>
       {{!-- {{else}} --}}

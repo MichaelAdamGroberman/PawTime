@@ -1,72 +1,23 @@
 {{!-- TODO: check if this work --}}
 {{!-- {{#if logged_in }} --}}
-{{!-- TODO: if logged in page --}}
-{{!-- {{#each profiless as |profile|}} --}}
 <div class="container container-fluid mt4">
   <div class="card-deck">
+    {{#each petCardProfile as |petprofile|}}
+      {{> petcard}}
+    {{/each}}
 
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row no-gutters">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          {{!-- TODO: link to the below information through petcard rename the following--}}
-          <h5 class="card-title">PET NAME{{profile.petname}}</h5>
-
-          <p class="card-text">Pet Description: {{profile.vaccination}}</p>
-
-          <p class="card-text">Lastest Vaccination: {{profile.vaccination}}</p>
-
-          <p class="card-text">Lastest Exercises: {{profile.walks}}</p>
-
-          <p class="card-text">Next Appointment: {{profile.vetvisit}}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mb-3" style="max-width: 540px;">
-      <form class="card-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Pet name: </label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter pet name">
-        </div>
-
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Pet type: </label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Dog</option>
-            <option>Cat</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Pet Gender: </label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Boy</option>
-            <option>Girl</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Pet description:</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-
+    {{> new-petcard}}
   </div>
 </div>
-{{!-- {{/each}}
 
-{{else}} --}}
+{{!-- {{else}} --}}
 {{! TODO: finalize the layout }}
 <div class="container">
   <div class='jumbotron'>
 
-    <h1 class='display-4'>Make it easy for your pet(s)!</h1>
+    <h1 class='display-4'>All in one for your pet(s).</h1>
 
-    <p class='lead'>Purpose of our site. Maybe we can pull it from the description? or user story?</p>
+    <p class='lead'>Are you lossing track for your pets?</p>
 
     <hr class='my-4' />
 
