@@ -1,62 +1,46 @@
 <html lang='en'>
 
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Paw Time</title>
-    <link rel='stylesheet' href='/css/jass.css' />
-    <link rel='stylesheet' href='/css/style.css' />
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/css/style.css'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
   </head>
 
   <body>
-    {{! TODO: class & id names write if statement for if logged in - replace login as profile icon}}
-    {{! TODO: modify nav bar - copied from bootstrap }}
-    <nav class='navbar navbar-expand-lg navbar-light bg-light'>
+    <nav class='navbar navbar-expand-lg navbar-light bg-light mt-2'>
 
-      <a class='navbar-brand' href='#'>
-        {{! TODO: link logo }}
-        <img src='#' width='30' height='30' class='d-inline-block align-top' alt='' />Paw Time
+      <a class='navbar-brand' href='/'>
+        <img src='/images/PawTime_logo.png' width='30' height='30' class='d-inline-block align-top' alt='' />Paw Time
       </a>
-
-      <ul class='nav nav-pills mb-3' id='pills-tab' role='tablist'>
+      {{!-- TODO: uncomment if logged --}}
+      {{!-- {{#if logged_in}} --}}
+      <ul class='nav nav-pills mb-3' role='tablist'>
         <li class='nav-item'>
-          <a class='nav-link active' id='pills-home-tab' data-toggle='pill' href='#pills-home' role='tab' aria-controls='pills-home' aria-selected='true'>Home</a>
+          <a class='nav-link active' id='pills-home-tab' data-toggle='pill' href='/profile' role='tab' aria-controls='pills-home' aria-selected='true'>Profile</a>
         </li>
 
         <li class='nav-item'>
-          <a class='nav-link' id='pills-profile-tab' data-toggle='pill' href='#pills-profile' role='tab' aria-controls='pills-profile' aria-selected='false'>Profile</a>
-        </li>
-
-        <li class='nav-item'>
-          <a class='nav-link' id='pills-contact-tab' data-toggle='pill' href='#pills-contact' role='tab' aria-controls='pills-contact' aria-selected='false'>Contact</a>
+          <a class='nav-link' id='pills-contact-tab' data-toggle='pill' href='/logout' role='tab' aria-controls='pills-contact' aria-selected='false'>Logout</a>
         </li>
       </ul>
-
-      <div class='tab-content' id='pills-tabContent'>
-        <div class='tab-pane fade show active' id='pills-home' role='tabpanel' aria-labelledby='pills-home-tab'>...</div>
-        <div class='tab-pane fade' id='pills-profile' role='tabpanel' aria-labelledby='pills-profile-tab'>...</div>
-        <div class='tab-pane fade' id='pills-contact' role='tabpanel' aria-labelledby='pills-contact-tab'>...</div>
-      </div>
-
-      {{! TODO: write a function if logged in -> change it to profile icon, if not stay as login}}
-
-      <button type='button' class='btn btn-outline-dark my-2 my-lg-0'>LogIn</button>
-
+      {{!-- {{else}} --}}
+      <button type='button' class='btn btn-outline-dark my-2 my-lg-0'>
+        <a href="/login">LogIn</a>
+      </button>
+      {{!-- {{/if}} --}}
     </nav>
 
-    {{! TODO: check out the style of this container possibly after log in }}
-    <main class='container container-fluid mt-5'>
+    <main>
       <!-- Render the sub layout -->
       {{{body}}}
     </main>
 
-    {{! TODO: footer }}
     <footer>
 
     </footer>
 
-    {{! QUESTION: Why are we adding the if statement here? }}
     {{#if logged_in}}
       <script src='/js/logout.js'></script>
     {{/if}}

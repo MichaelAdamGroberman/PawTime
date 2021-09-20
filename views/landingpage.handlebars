@@ -1,18 +1,81 @@
+{{!-- TODO: check if this work --}}
+{{!-- {{#if logged_in }} --}}
+{{!-- TODO: if logged in page --}}
+{{!-- {{#each profiless as |profile|}} --}}
+<div class="container container-fluid mt4">
+  <div class="card-deck">
 
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          {{!-- TODO: link to the below information through petcard rename the following--}}
+          <h5 class="card-title">PET NAME{{profile.petname}}</h5>
+
+          <p class="card-text">Pet Description: {{profile.vaccination}}</p>
+
+          <p class="card-text">Lastest Vaccination: {{profile.vaccination}}</p>
+
+          <p class="card-text">Lastest Exercises: {{profile.walks}}</p>
+
+          <p class="card-text">Next Appointment: {{profile.vetvisit}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3" style="max-width: 540px;">
+      <form class="card-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Pet name: </label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter pet name">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Pet type: </label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>Dog</option>
+            <option>Cat</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Pet Gender: </label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>Boy</option>
+            <option>Girl</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Pet description:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+{{!-- {{/each}}
+
+{{else}} --}}
 {{! TODO: finalize the layout }}
-<div class='jumbotron'>
+<div class="container">
+  <div class='jumbotron'>
 
-  <h1 class='display-4'>slogan / short statement of the site !</h1>
+    <h1 class='display-4'>Make it easy for your pet(s)!</h1>
 
-  <p class='lead'>Purpose of our site. Maybe we can pull it from the description? or user story?</p>
+    <p class='lead'>Purpose of our site. Maybe we can pull it from the description? or user story?</p>
 
-  <hr class='my-4' />
+    <hr class='my-4' />
 
-  <p>...... short sentense ..... optional ......</p>
+    <p>...... short sentense ..... optional ......</p>
 
-  {{! TODO/QUESTION: bring them to login/register page if they dont have an account or sign in }}
-  <a class='btn btn-primary btn-lg' href='#' role='button'>Register for Your Pet Today!</a>
+    {{! TODO/QUESTION: bring them to login/register page if they dont have an account or sign in }}
+    <a class='btn btn-primary btn-lg' href='/signup' role='button'>Register for Your Pet Today!</a>
 
+  </div>
 </div>
 
-{{! TODO: getting the card from profile? }}
+{{!-- {{/if}} --}}

@@ -1,46 +1,94 @@
-{{! QUESTION this for already have card and need to create card?}}
-{{! if already have pet profile set up render the profile card, if not render a card to create profile }}
+{{!-- TODO: render each profile by id --}}
 
-<div class='card-deck'>
+<div class="jumbotron jumbotron-fluid mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-2">
+        <img class="rounded-circle" alt="100x100" src="#"data-holder-rendered="true">
+      </div>
 
-  {{! COMMENT: this is for if user has a profile created }}
-  <div class='card'>
-    {{! TODO: add image  IMPORTANT: future feature - allow multiple images with slides}}
-    <img src='...' class='card-img-top' alt='...' />
+      <div class="col col-lg-4">
+        <h5>PET NAME</h5>
+        <small>gender | age</small>
+      </div>
+      {{!-- TODO: style divider --}}
+      <div class="col-xs-2 v-divider"></div>
 
-    <div class='card-body'>
-      <h5 class='card-title'>PET 1 NAME</h5>
-      {{! TODO: format to make the list of information better }}
-      <p class='card-text'>information</p>
-      <p class='card-text'>information</p>
-      <p class='card-text'>information</p>
-      <p class='card-text'>information</p>
-    </div>
+      <div class="col">
+        Last Meal ...
+      </div>
 
-    {{! IMPORTANT: maybe this can be a short reminder we add to the profile card }}
-    <div class='card-footer'>
-      <small class='text-muted'>Last updated 3 mins ago</small>
-    </div>
-  </div>
-
-  {{! COMMENT: this is one card template }}
-  <div class='card'>
-    {{! TODO: add image  IMPORTANT: future feature - allow multiple images with slides}}
-    <img src='...' class='card-img-top' alt='...' />
-
-    <div class='card-body'>
-      <h5 class='card-title'>PET 1 NAME</h5>
-      {{! TODO: format to make the list of information better }}
-      <p class='card-text'>information</p>
-      <p class='card-text'>information</p>
-      <p class='card-text'>information</p>
-      <p class='card-text'>information</p>
-    </div>
-
-    {{! IMPORTANT: maybe this can be a short reminder we add to the profile card }}
-    <div class='card-footer'>
-      <small class='text-muted'>Last updated 3 mins ago</small>
+      <div class="col col-lg-2">
+        Next Appointment ...
+      </div>
     </div>
   </div>
+</div>
 
+<div class="container">
+  
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            APPOINTMENTS
+          </button>
+        </h2>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          ....... ADD FUNCTION
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            .... ADD FUNCTION
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          .... ADD FUNCTION
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            VACCINATIONS
+          </button>
+        </h2>
+      </div>
+      <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          ..... ADD FUNCTION
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            NOTES
+          </button>
+        </h2>
+      </div>
+      <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          
+        </div>
+      </div>
+    </div>
+    </div>
+  
 </div>
