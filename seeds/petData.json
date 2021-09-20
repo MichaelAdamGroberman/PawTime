@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Pet 1",
+    "type": "Dog",
+    "breed": "Cavalier"
+  },
+  {
+    "name": "Pet 2",
+    "type": "Dog",
+    "breed": "Eurasier"
+  },
+  {
+    "name": "Pet 3",
+    "type": "Dog",
+    "breed": "Komondor"
+  },
+  {
+    "name": "Pet 4",
+    "type": "Cat",
+    "breed": "Chartreux"
+  },
+  {
+    "name": "Pet 5",
+    "type": "Cat",
+    "breed": "LaPerm"
+  }
+]
