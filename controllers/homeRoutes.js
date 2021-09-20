@@ -1,14 +1,37 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
+const { Pet, Vaccinations, Exercise, Appointments } = require('../models');
 
 // TODO: for landing page without authentication
 router.get('/', async (req, res) => {
   try {
+    const petData = await Pet.findAll({
+      include: [
+        {
+          model: Vaccinations,
+          attributes: [],
+        },
+        {
+          model: Exercise,
+          attributes: [],
+        },
+        {
+          model: Appointments,
+          attributes: ['date', 'notes'],
+        },
+      ],
+    });
+
+    const petCardProfile = petData.map((petCard) =>
+      petCard.get({ plain: true })
+    );
+    console.log(petCardProfile);
     // Route for rendeing homepage
     res.render('landingpage', {
-      // QUESTION: empty ???
+      petCardProfile,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
