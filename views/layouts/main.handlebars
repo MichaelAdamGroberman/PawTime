@@ -14,16 +14,16 @@
       <a class='navbar-brand mr-auto p-2' href='/'>
         <img src='/images/PawTime_logo.png' width='30' height='30' class='d-inline-block align-top' alt='' />Paw Time
       </a>
-      {{!-- TODO: uncomment if logged --}}
+
       {{!-- {{#if logged_in}} --}}
       <ul class='nav nav-pills p-2' role='tablist'>
         <li class="nav-item">
           {{!-- profile will be a dropped down --}}
-          <a class="nav-link" href="/profile">Profile <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/profile">Profile</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
+          <button type='button' class='nav-link' id='logout'>Logout</button>
         </li>
       </ul>
       {{!-- {{else}} --}}
@@ -42,9 +42,9 @@
 
     </footer>
 
-    {{#if logged_in}}
+    {{!-- {{#if logged_in}} --}}
       <script src='/js/logout.js'></script>
-    {{/if}}
+    {{!-- {{/if}} --}}
 
   </body>
 

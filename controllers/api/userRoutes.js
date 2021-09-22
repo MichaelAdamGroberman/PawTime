@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// Route to handle posting of user which will be used for Sign up screen 
+// Route to handle posting of user which will be used for Sign up screen
 // Create User
 router.post('/', async (req, res) => {
   try {
@@ -19,10 +19,10 @@ router.post('/', async (req, res) => {
   }
 });
 
-
 // Read User Information for login
 router.post('/login', async (req, res) => {
   try {
+    // finding if the (one) email entered match with the existing emails in database
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
@@ -31,7 +31,9 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
+    console.log('email passed in');
 
+    // validating if the password is entered correctly
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -41,14 +43,18 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    console.log('password passed in');
+
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+
+      console.log('Logged in');
       res.json({ user: userData, message: 'You are now logged in!' });
     });
-
   } catch (err) {
+    console.log('something broke');
+    console.log(err);
     res.status(400).json(err);
   }
 });

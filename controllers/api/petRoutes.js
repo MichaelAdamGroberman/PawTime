@@ -1,7 +1,7 @@
-const router = require('express').Router(); 
+const router = require('express').Router();
 const { Pet } = require('../../models');
 
-// Route for creating the new pet information 
+// Route for creating the new pet information
 router.post('/', async (req, res) => {
   try {
     const pet = await Pet.create({
@@ -20,13 +20,13 @@ router.delete('/:id', async (req, res) => {
   try {
     const petData = await Pet.destroy({
       where: {
-        id: req.params.id
-      }
+        id: req.params.id,
+      },
     });
 
     if (!petData) {
       res.status(404).json({
-        message: 'No pet found with this id!'
+        message: 'No pet found with this id!',
       });
       return;
     }
@@ -39,11 +39,11 @@ router.delete('/:id', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const pet = await Pet.findByPk(req.params.id); 
+    const pet = await Pet.findByPk(req.params.id);
     if (!pet) {
       res.status(404).json({ message: 'No pet with this id!' });
       return;
-    }  
+    }
 
     const petData = pet.get({ plain: true });
     res.status(200).json(petData);
@@ -58,20 +58,17 @@ router.get('/byuser/:user_id', async (req, res) => {
     const userId = req.params.user_id;
     const pets = await Pet.findAll({
       where: {
-        user_id: userId
+        user_id: userId,
       },
-      order: [
-        ['name', 'ASC']
-      ],
+      order: [['name', 'ASC']],
     });
 
     const petsData = pets.map((pet) => pet.get({ plain: true }));
-     res.status(200).json(petsData);
+    res.status(200).json(petsData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;

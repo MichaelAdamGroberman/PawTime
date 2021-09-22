@@ -1,32 +1,29 @@
 <div class="container row">
   <div class="jumbotron col-sm-4 pull-center">
-    <form action="/signup" method="post">
 
-      <div>
-        <label>Username:</label>
-        <input type="text" name="username"/>
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="name-signup">name:</label>
+        <input class="form-input" type="text" id="name-signup" />
       </div>
-
-      <div>
-        <label>Email: </label>
-        <input type="text" name="email"/>
+      <div class="form-group">
+        <label for="email-signup">email:</label>
+        <input class="form-input" type="text" id="email-signup" />
       </div>
-
-      <div>
-        <label>Password: </label>
-        <input type="password" name="password"/>
+      <div class="form-group">
+        <label for="password-signup">password:</label>
+        <input class="form-input" type="password" id="password-signup" />
       </div>
-
-      <div>
-        <label>Zip Code: </label>
-        <input type="password" name="password"/>
+      <div class="form-group">
+        <label for="password-signup">ZipCode:</label>
+        <input class="form-input" type="text" id="zipcode-signup" />
       </div>
-
-      <div>
-        {{!-- TODO: after sign up - bring to the landing page --}}
-        <input class="btn btn-primary" type="submit" value="Sign Up"/> 
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">signup</button>
       </div>
-
     </form>
+
   </div>
 </div>
+
+<script src="./js/login.js"></script>
