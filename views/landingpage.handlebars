@@ -1,17 +1,5 @@
-{{!-- TODO: check if this work --}}
-{{!-- {{#if logged_in }} --}}
-<div class="container container-fluid mt4">
-  <div class="card-deck">
-    {{#each petCardProfile as |petprofile|}}
-      {{> petcard}}
-    {{/each}}
 
-    {{> new-petcard}}
-  </div>
-</div>
 
-{{!-- {{else}} --}}
-{{! TODO: finalize the layout }}
 <div class="container">
   <div class='jumbotron'>
 
@@ -23,10 +11,7 @@
 
     <p>...... short sentense ..... optional ......</p>
 
-    {{! TODO/QUESTION: bring them to login/register page if they dont have an account or sign in }}
     <a class='btn btn-primary btn-lg' href='/signup' role='button'>Register for Your Pet Today!</a>
 
   </div>
 </div>
-
-{{!-- {{/if}} --}}

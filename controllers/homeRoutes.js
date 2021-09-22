@@ -1,12 +1,26 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { Pet, Vaccinations, Exercise, Appointments } = require('../models');
+const {
+  Pet,
+  Vaccinations,
+  Exercise,
+  Appointments,
+  User,
+  Notes,
+} = require('../models');
 
-// TODO: for landing page without authentication
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
+  res.render('landingpage');
+});
+
+router.get('/profile', withAuth, async (req, res) => {
   try {
     const petData = await Pet.findAll({
       include: [
+        {
+          model: User,
+          attributes: { exclude: ['password'] },
+        },
         {
           model: Vaccinations,
           attributes: [],
@@ -17,55 +31,47 @@ router.get('/', async (req, res) => {
         },
         {
           model: Appointments,
-          attributes: ['date', 'notes'],
+          attributes: [],
+        },
+        {
+          model: Notes,
+          attributes: [],
         },
       ],
     });
 
-    const petCardProfile = petData.map((petCard) =>
-      petCard.get({ plain: true })
-    );
-    console.log(petCardProfile);
+    const petCards = petData.map((petCard) => petCard.get({ plain: true }));
+
     // Route for rendeing homepage
-    res.render('landingpage', {
-      petCardProfile,
+    res.render('profile', {
+      ...petCards,
+      logged_in: true,
     });
+  } catch (err) {
+    console.log(err);
+
+    res.status(500).json(err);
+  }
+});
+
+// GET petprofile -> bring to individual pet profile
+router.get('/petprofile', async (req, res) => {
+  try {
+    res.render('pets');
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     // Route for rendeing homepage
-//     res.render('profile', {
-//       // Passing the logged_inn flag value from the session object to the
-//       // handlebar's homepage view
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-router.get('/profile', (req, res) => {
-  // If the user is already logged in redirect the page to the homepage
-  if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
-
-  res.render('profile');
-});
-
 router.get('/login', (req, res) => {
-  // If the user is already logged in redirect the page to the homepage
+  // If the user is already logged in redirect the page to the landingpage
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
   }
 
+  // If not, render
   res.render('login');
 });
 
@@ -80,3 +86,8 @@ router.get('/signup', (req, res) => {
 });
 
 module.exports = router;
+
+// PRACTICE
+router.get('/petpage', (req, res) => {
+  res.render('pets');
+});
