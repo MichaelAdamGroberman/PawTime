@@ -32,8 +32,8 @@ Appointments.init(
             references: {
                 model: 'pet',
                 key: 'id',
-            },
-        },
+            }
+        }
     },
     {
         sequelize,

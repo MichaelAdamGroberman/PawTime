@@ -2,26 +2,31 @@
   {
     "name": "Pet 1",
     "type": "Dog",
-    "breed": "Cavalier"
+    "breed": "Cavalier",
+    "gender":"Male"
   },
   {
     "name": "Pet 2",
     "type": "Dog",
-    "breed": "Eurasier"
+    "breed": "Eurasier",
+    "gender":"Female"
   },
   {
     "name": "Pet 3",
     "type": "Dog",
-    "breed": "Komondor"
+    "breed": "Komondor",
+    "gender":"Male"
   },
   {
     "name": "Pet 4",
     "type": "Cat",
-    "breed": "Chartreux"
+    "breed": "Chartreux",
+    "gender":"Female"
   },
   {
     "name": "Pet 5",
     "type": "Cat",
-    "breed": "LaPerm"
+    "breed": "LaPerm",
+    "gender":"Female"
   }
 ]

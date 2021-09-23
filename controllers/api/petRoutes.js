@@ -37,6 +37,29 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Route for updating the existing appointment information
+router.put('/:id', async (req, res) => {
+  try {
+      const petData = await Pet.update({
+          ...req.body
+      }, {
+          where: {
+              id: req.params.id,
+          },
+      }); 
+      if (!petData) {
+          res.status(404).json({
+              message: 'No pet found with this id!',
+          });
+          return;
+      }
+      res.status(200).json(petData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+// Route for getting the pet by id
 router.get('/:id', async (req, res) => {
   try {
     const pet = await Pet.findByPk(req.params.id);
@@ -53,6 +76,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Route for getting all pets for a specific user id
 router.get('/byuser/:user_id', async (req, res) => {
   try {
     const userId = req.params.user_id;
