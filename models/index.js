@@ -29,7 +29,7 @@ Pet.hasMany(Appointments, {
 });
 
 Appointments.belongsTo(Pet, {
-  foreignKey: 'pet_id,',
+  foreignKey: 'pet_id',
 });
 
 Pet.hasMany(Vaccinations, {
@@ -38,7 +38,7 @@ Pet.hasMany(Vaccinations, {
 });
 
 Vaccinations.belongsTo(Pet, {
-  foreignKey: 'pet_id,',
+  foreignKey: 'pet_id',
 });
 
 Pet.hasMany(Exercise, {
@@ -47,7 +47,7 @@ Pet.hasMany(Exercise, {
 });
 
 Exercise.belongsTo(Pet, {
-  foreignKey: 'pet_id,',
+  foreignKey: 'pet_id',
 });
 
 module.exports = { User, Pet, Notes, Appointments, Exercise, Vaccinations };
