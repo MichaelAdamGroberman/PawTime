@@ -96,7 +96,7 @@ router.get('/bypet/:pet_id', async (req, res) => {
         const exercises = exerciseData.map((exercise) => exercise.get({
             plain: true
         }));
-        res.status(200).json(exerciseData);
+        res.status(200).json(exercises);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
