@@ -27,13 +27,16 @@ petBreedEl.addEventListener('change', function (e) {
 
 const newPetFormHandler = async (event) => {
   event.preventDefault();
-  console.log('hello');
+
   if ((petName, petGender, petType, petBreed)) {
     const response = await fetch('/api/pets', {
       method: 'POST',
       body: JSON.stringify({ petName, petGender, petType, petBreed }),
       headers: { 'Content-Type': 'application/json' },
     });
+
+    console.log(response);
+    console.log(err);
 
     if (response.ok) {
       document.location.replace('/profile');
@@ -45,5 +48,5 @@ const newPetFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.new-pet-form')
+  .querySelector('#pet-submit')
   .addEventListener('submit', newPetFormHandler);

@@ -41,10 +41,10 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const petCards = petData.map((petCard) => petCard.get({ plain: true }));
-
+    console.log(petCards);
     // Route for rendeing homepage
     res.render('profile', {
-      ...petCards,
+      petCards,
       logged_in: true,
     });
   } catch (err) {
@@ -89,5 +89,5 @@ module.exports = router;
 
 // PRACTICE
 router.get('/petpage', (req, res) => {
-  res.render('pets');
+  // res.render('pets'); information we sent tot he pethandlebars page
 });
