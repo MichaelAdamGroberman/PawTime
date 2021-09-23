@@ -9,6 +9,11 @@ router.post('/', async (req, res) => {
       user_id: req.session.user_id,
     });
 
+    if (req.session.user_id) {
+      res.redirect('/profile');
+      return;
+    }
+
     res.status(200).json(pet);
   } catch (err) {
     res.status(400).json(err);

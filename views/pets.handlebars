@@ -28,7 +28,7 @@
 
 <div class="container">
   
-  <div class="accordion" id="accordionExample">
+  <div class="accordion" id="vaccination-accordion">
 
     <div class="card">
       <div class="card-header" id="headingThree">
@@ -39,21 +39,23 @@
         </h2>
       </div>
 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Launch demo modal
-      </button>
+      <form class="vaccination-form">
+        <div class="form-group">
+          <label for="vaccinationDetails">details</label>
+          <input type="text" class="form-control" id="vaccinationDetails" placeholder="Enter vaccination name">
+        </div>
 
-
+        <div class="form-group">
+          <label for="vaccinationDate">Date</label>
+          <input type="text" class="form-control" id="vaccinationDate" placeholder="Enter date">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 
       <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
         <div class="card-body">
 
-          <div class="card">
-            <ul class="list-group list-group-flush">
-
-              <li class="list-group-item">details</li>
-              <li class="list-group-item">datet&time</li>
-            </ul>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -61,4 +63,6 @@
 
   
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
