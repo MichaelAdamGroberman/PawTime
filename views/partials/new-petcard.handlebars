@@ -1,0 +1,40 @@
+{{!-- COMMENT: CREATE NEW --}}
+  <div class="card mb-3" style="max-width: 540px;">
+    <form class="card-body new-pet-form">
+      <div class="form-group">
+        <label for="petName">Pet name: </label>
+        <input type="text" class="form-control" id="petName" placeholder="Enter pet name">
+      </div>
+
+      <div class="form-group">
+        <label for="petGenderSelect">Pet Gender: </label>
+        <select class="form-control" id="petGenderSelect">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="petTypeSelect">Pet type: </label>
+        <select class="form-control" id="petTypeSelect">
+          <option>Dog</option>
+          <option>Cat</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="formGroupExampleInput">Pet Breed:</label>
+        <input type="text" class="form-control" id="petBreedInput" placeholder="Enter pet breed">
+      </div>
+
+{{!-- QUESTION: IF ADD BIRTHDAY, NEED TO ADD JS FOR DATE PICKER --}}
+      {{!-- <div class="form-group">
+        <label class="control-label" for="petBirthday">Birthday:</label>
+        <input class="form-control" id="petBirthday" name="date" placeholder="MM/DD/YYY" type="text"/>
+      </div> --}}
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script src="/js/newPet.js"></script>

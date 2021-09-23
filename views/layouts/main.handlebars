@@ -1,0 +1,51 @@
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Paw Time</title>
+    <link rel='stylesheet' href='/css/style.css'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+  </head>
+
+  <body>
+    <nav class='navbar navbar-expand-lg navbar-light bg-light mt-2 d-flex bd-highlight mb-3'>
+
+      <a class='navbar-brand mr-auto p-2' href='/'>
+        <img src='/images/PawTime_logo.png' width='30' height='30' class='d-inline-block align-top' alt='' />Paw Time
+      </a>
+
+      {{!-- {{#if logged_in}} --}}
+      <ul class='nav nav-pills p-2' role='tablist'>
+        <li class="nav-item">
+          {{!-- profile will be a dropped down --}}
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+
+        <li class="nav-item">
+          <button type='button' class='nav-link' id='logout'>Logout</button>
+        </li>
+      </ul>
+      {{!-- {{else}} --}}
+      <button type='button' class='btn btn-outline-dark my-2 my-lg-0'>
+        <a href="/login">LogIn</a>
+      </button>
+      {{!-- {{/if}} --}}
+    </nav>
+
+    <main>
+      <!-- Render the sub layout -->
+      {{{body}}}
+    </main>
+
+    <footer>
+
+    </footer>
+
+    {{!-- {{#if logged_in}} --}}
+      <script src='/js/logout.js'></script>
+    {{!-- {{/if}} --}}
+
+  </body>
+
+</html>

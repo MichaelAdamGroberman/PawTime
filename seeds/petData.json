@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Pet 1",
+    "type": "Dog",
+    "breed": "Cavalier",
+    "gender":"Male"
+  },
+  {
+    "name": "Pet 2",
+    "type": "Dog",
+    "breed": "Eurasier",
+    "gender":"Female"
+  },
+  {
+    "name": "Pet 3",
+    "type": "Dog",
+    "breed": "Komondor",
+    "gender":"Male"
+  },
+  {
+    "name": "Pet 4",
+    "type": "Cat",
+    "breed": "Chartreux",
+    "gender":"Female"
+  },
+  {
+    "name": "Pet 5",
+    "type": "Cat",
+    "breed": "LaPerm",
+    "gender":"Female"
+  }
+]

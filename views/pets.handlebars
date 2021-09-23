@@ -1,0 +1,64 @@
+{{!-- TODO: render each profile by id --}}
+
+<div class="jumbotron jumbotron-fluid mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-2">
+        {{!-- TODO: style image --}}
+        <img class="rounded-circle" alt="pet-image" src="#"data-holder-rendered="true">
+      </div>
+
+      <div class="col col-lg-4">
+        <h5>PET NAME</h5>
+        <small>gender | age</small>
+      </div>
+      {{!-- TODO: style divider --}}
+      <div class="col-xs-2 v-divider"></div>
+
+      <div class="col">
+        Lastest Meal ...
+      </div>
+
+      <div class="col col-lg-2">
+        Next Appointment ...
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  
+  <div class="accordion" id="accordionExample">
+
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            VACCINATIONS
+          </button>
+        </h2>
+      </div>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Launch demo modal
+      </button>
+
+
+
+      <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+
+          <div class="card">
+            <ul class="list-group list-group-flush">
+
+              <li class="list-group-item">details</li>
+              <li class="list-group-item">datet&time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+

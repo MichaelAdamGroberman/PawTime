@@ -1,0 +1,9 @@
+<div class="container container-fluid mt4">
+  <div class="card-deck">
+    {{#each petCards as |petprofile|}}
+      {{> petcard}}
+    {{/each}}
+
+    {{> new-petcard}}
+  </div>
+</div>
