@@ -1,23 +1,22 @@
 const router = require('express').Router();
-const { Exercises} = require('../../models');
+const { Exercise} = require('../../models');
 
 // Route for creating the new exercise information
 router.post('/', async (req, res) => {
     try {
-        const exercise = await Exercises.create({
+        const exercise = await Exercise.create({
             ...req.body
         });
-
-        res.status(200).json(excercise);
+        res.status(200).json(exercise);
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-// Route for deleting the existing excercise information
+// Route for deleting the existing exercise information
 router.delete('/:id', async (req, res) => {
     try {
-        const exerciseData = await Exercises.destroy({
+        const exerciseData = await Exercise.destroy({
             where: {
                 id: req.params.id,
             },
@@ -25,7 +24,7 @@ router.delete('/:id', async (req, res) => {
 
         if (!exerciseData) {
             res.status(404).json({
-                message: 'No Exercise found with this id!',
+                message: 'No exercise found with this id!',
             });
             return;
         }
@@ -37,10 +36,10 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-// Route for updating the existing excercise information
+// Route for updating the existing exercise information
 router.put('/:id', async (req, res) => {
     try {
-        const exerciseData = await Exercises.update({
+        const exerciseData = await Exercise.update({
             ...req.body
         }, {
             where: {
@@ -49,7 +48,7 @@ router.put('/:id', async (req, res) => {
         }); 
         if (!exerciseData) {
             res.status(404).json({
-                message: 'No Exercise found with this id!',
+                message: 'No exercise found with this id!',
             });
             return;
         }
@@ -63,15 +62,15 @@ router.put('/:id', async (req, res) => {
 // Route to get specfic exercise using the id
 router.get('/:id', async (req, res) => {
     try {
-        const exerciseData = await Exercises.findByPk(req.params.id);
+        const exerciseData = await Exercise.findByPk(req.params.id);
         if (!exerciseData) {
             res.status(404).json({
-                message: 'No Excercise found with this id!'
+                message: 'No exercise found with this id!'
             });
             return;
         }
 
-        const exerciseConst = exerciseData.get({
+        const exercise = exerciseData.get({
             plain: true
         });
         res.status(200).json(exercise);
@@ -81,11 +80,11 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// Get all exercise for a pet
+// Get all exercises for a pet
 router.get('/bypet/:pet_id', async (req, res) => {
     try {
         const petId = req.params.pet_id;
-        const exerciseData = await Exercises.findAll({
+        const exerciseData = await Exercise.findAll({
             where: {
                 pet_id: petId,
             },
@@ -94,10 +93,10 @@ router.get('/bypet/:pet_id', async (req, res) => {
             ],
         });
 
-        const exercise = exerciseData.map((appt) => exercise.get({
+        const exercises = exerciseData.map((exercise) => exercise.get({
             plain: true
         }));
-        res.status(200).json(exerciseData);
+        res.status(200).json(exercises);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
