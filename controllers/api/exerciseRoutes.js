@@ -35,7 +35,6 @@
      }
  });
 
-
  // Route for updating the existing exercise information
  router.put('/:id', async (req, res) => {
      try {
