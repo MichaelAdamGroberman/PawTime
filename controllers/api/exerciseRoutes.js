@@ -97,7 +97,6 @@ router.get('/bypet/:pet_id', async (req, res) => {
       },
       order: [['date', 'ASC']],
     });
-
     const exercises = exerciseData.map((exercise) =>
       exercise.get({
         plain: true,
