@@ -14,3 +14,4 @@ router.use('/notes', noteRoutes);
 router.use('/vaccinations', vaccinationRoutes);
 
 module.exports = router;
+
