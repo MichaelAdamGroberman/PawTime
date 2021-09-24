@@ -1,18 +1,22 @@
+const vaccinationNameEl = document.querySelector('#vaccinationNameInput');
+vaccinationNameEl.addEventListener('change', function (e) {
+  vaccinationName = e.target.value;
+  console.log(e.target.value);
+});
+
+const vaccinationDateEl = document.querySelector('#vaccinationDateInput');
+vaccinationDateEl.addEventListener('change', function (e) {
+  vaccinationDate = e.target.value;
+  console.log(e.target.value);
+});
+
 const newvaccinationFormHandler = async (event) => {
   event.preventDefault();
 
-  const details = document.querySelector('#vaccinationDetails').value.trim();
-
-  console.log(details);
-
-  const date = document.querySelector('#vaccinationDate').value.trim();
-
-  console.log(date);
-
-  if ((details, date)) {
+  if ((vaccinationName, vaccinationDate)) {
     const response = await fetch('/api/vaccinations', {
       method: 'POST',
-      body: JSON.stringify({ name, gender, type, breed }),
+      body: JSON.stringify({ vaccinationName, vaccinationDate }),
       headers: { 'Content-Type': 'application/json' },
     });
 

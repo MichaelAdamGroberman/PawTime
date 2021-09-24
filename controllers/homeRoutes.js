@@ -41,12 +41,19 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const petCards = petData.map((petCard) => petCard.get({ plain: true }));
-    console.log(petCards);
+
+    const petNames = petData.map((petName) => petName.get({ plain: true }));
+
     // Route for rendeing homepage
     res.render('profile', {
       petCards,
       logged_in: true,
     });
+    // QUESTION
+    // res.render('pet-name', {
+    //   petNames,
+    //   logged_in: true,
+    // });
   } catch (err) {
     console.log(err);
 
