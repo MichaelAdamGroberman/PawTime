@@ -22,50 +22,48 @@ router.post('/', async (req, res) => {
 
 // Route for deleting the existing exercise information
 router.delete('/:id', async (req, res) => {
-  try {
-    const exerciseData = await Exercise.destroy({
-      where: {
-        id: req.params.id,
-      },
-    });
+    try {
+        const exerciseData = await Exercise.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
 
-    if (!exerciseData) {
-      res.status(404).json({
-        message: 'No exercise found with this id!',
-      });
-      return;
+        if (!exerciseData) {
+            res.status(404).json({
+                message: 'No exercise found with this id!',
+            });
+            return;
+        }
+
+        res.status(200).json(exerciseData);
+    } catch (err) {
+        res.status(500).json(err);
     }
-
-    res.status(200).json(exerciseData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
+
 
 // Route for updating the existing exercise information
 router.put('/:id', async (req, res) => {
-  try {
-    const exerciseData = await Exercise.update(
-      {
-        ...req.body,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    );
-    if (!exerciseData) {
-      res.status(404).json({
-        message: 'No exercise found with this id!',
-      });
-      return;
-    }
+    try {
+        const exerciseData = await Exercise.update({
+            ...req.body
+        }, {
+            where: {
+                id: req.params.id,
+            },
+        }); 
+        if (!exerciseData) {
+            res.status(404).json({
+                message: 'No exercise found with this id!',
+            });
+            return;
+        }
 
-    res.status(200).json(exerciseData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+        res.status(200).json(exerciseData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 // Route to get specfic exercise using the id
