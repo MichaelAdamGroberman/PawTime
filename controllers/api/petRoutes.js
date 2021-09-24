@@ -3,14 +3,24 @@ const { Pet } = require('../../models');
 
 // Route for creating the new pet information
 router.post('/', async (req, res) => {
+  console.log(req.body);
   try {
     const pet = await Pet.create({
-      ...req.body,
+      name: req.body.petName,
+      gender: req.body.petGender,
+      type: req.body.petType,
+      breed: req.body.petBreed,
       user_id: req.session.user_id,
     });
 
+    if (req.session.user_id) {
+      res.redirect('/profile');
+      return;
+    }
+
     res.status(200).json(pet);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });

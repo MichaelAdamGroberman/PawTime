@@ -1,29 +1,37 @@
+const petGenderEl = document.querySelector('#petGenderSelect');
+let petGender = 'Male';
+petGenderEl.addEventListener('change', function (e) {
+  petGender = e.target.value;
+  console.log(e.target.value);
+});
+console.log(petGender);
+
+const petTypeEl = document.querySelector('#petTypeSelect');
+let petType = 'Dog';
+petTypeEl.addEventListener('change', function (e) {
+  petType = e.target.value;
+  console.log(e.target.value);
+});
+console.log(petType);
+
+const petNameEl = document.querySelector('#petNameInput');
+petNameEl.addEventListener('change', function (e) {
+  petName = e.target.value;
+  console.log(e.target.value);
+});
+const petBreedEl = document.querySelector('#petBreedInput');
+petBreedEl.addEventListener('change', function (e) {
+  petBreed = e.target.value;
+  console.log(e.target.value);
+});
+
 const newPetFormHandler = async (event) => {
   event.preventDefault();
-
-  const name = document.querySelector('#petName').value.trim();
-
-  const gender = document.querySelector('#petName').on('click', function () {
-    alert(petGender.val());
-
-    console.log(petGender.val());
-  });
-
-  const type = document.querySelector('#petType').on('click', function () {
-    alert(petType.val());
-
-    console.log(petType.val());
-  });
-
-  const breed = document.querySelector('#petBreed').value.trim();
-
-  // QUESTION:
-  // const petBirthday = document.querySelector('#petBirthday').value.trim();
-
+  console.log('hello');
   if ((petName, petGender, petType, petBreed)) {
     const response = await fetch('/api/pets', {
       method: 'POST',
-      body: JSON.stringify({ name, gender, type, breed }),
+      body: JSON.stringify({ petName, petGender, petType, petBreed }),
       headers: { 'Content-Type': 'application/json' },
     });
 
