@@ -3,24 +3,24 @@
     "name": "michael",
     "email": "michael@pawtime.com",
     "password": "password12345",
-    "zipCode" : "10001"
+    "zipCode": "10001"
   },
   {
     "name": "yingliii",
     "email": "yingliii@pawtime.com",
     "password": "password12345",
-    "zipCode" : "10001"
+    "zipCode": "10001"
   },
   {
     "name": "dfdellys",
     "email": "dfdellys@pawtime.com",
     "password": "password12345",
-    "zipCode" : "10001"
+    "zipCode": "10001"
   },
   {
     "name": "nataliapost11",
-    "email": "nataliapost11@pawtime.com",
+    "email": "nat.post11@gmail.com",
     "password": "password12345",
-    "zipCode" : "10001"
+    "zipCode": "10001"
   }
 ]
