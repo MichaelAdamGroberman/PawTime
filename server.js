@@ -5,6 +5,7 @@ const routes = require('./controllers');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 const path = require('path');
+const cors = require('cors');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -25,6 +26,7 @@ const sess = {
   })
 };
 
+app.use(cors());
 app.use(session(sess));
 // Adding view engine
 app.engine('handlebars', hbs.engine);
@@ -38,6 +40,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening - PawsTime App - http://localhost:' + PORT + '/'));
 });
