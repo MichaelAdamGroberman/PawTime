@@ -20,11 +20,8 @@ const newvaccinationFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    console.log(response);
-    console.log(err);
-
     if (response.ok) {
-      document.location.replace('/petpage');
+      document.location.replace('/vaccinations');
     } else {
       // TODO: change it to enter all values
       alert(response.statusText);
@@ -34,4 +31,4 @@ const newvaccinationFormHandler = async (event) => {
 
 document
   .querySelector('.vaccination-form')
-  .addEventListener('submit', newVaccinationFormHandler);
+  .addEventListener('submit', newvaccinationFormHandler);

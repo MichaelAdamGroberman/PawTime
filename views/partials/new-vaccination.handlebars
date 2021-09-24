@@ -1,14 +1,8 @@
-<form class="card-body vaccination-form">
-  <div class="form-group">
-    <label for="vaccinationNameInput">Vaccination Name: </label>
-    <input type="text" class="form-control" id="vaccinationNameInput" placeholder="Enter vaccination name">
-  </div>
+{{!-- TODO: style this page --}}
+<div class="card">
+  <ul class="list-group list-group-flush">
 
-  <div class="form-group datetimepicker">
-    <label for="vaccinationDateInput" >Vaccination Date: </label>
-      <input type="text" class="form-control" id="vaccinationDateInput" placeholder="Enter vaccination date"> 
-      <i class="far fa-calendar-alt"></i>
-  </div>
-
-  <button type="submit" class="btn btn-primary" id="vaccination-submit">Submit</button>
-</form>
+    <li class="list-group-item">Vaccination Name: {{details}}</li>
+    <li class="list-group-item">Vaccination Date: {{date}}</li>
+  </ul>
+</div>

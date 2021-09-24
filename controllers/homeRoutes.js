@@ -42,18 +42,18 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const petCards = petData.map((petCard) => petCard.get({ plain: true }));
 
-    const petNames = petData.map((petName) => petName.get({ plain: true }));
+    // const petNames = petData.map((petName) => petName.get({ plain: true }));
+    // QUESTION;
+    // res.render('main', {
+    //   petNames,
+    //   logged_in: true,
+    // });
 
     // Route for rendeing homepage
     res.render('profile', {
       petCards,
       logged_in: true,
     });
-    // QUESTION
-    // res.render('pet-name', {
-    //   petNames,
-    //   logged_in: true,
-    // });
   } catch (err) {
     console.log(err);
 
@@ -65,6 +65,72 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/petprofile', async (req, res) => {
   try {
     res.render('pets');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/vaccinations', async (req, res) => {
+  try {
+    const vaccinationData = await Vaccinations.findAll({});
+
+    const vaccinationCards = vaccinationData.map((vaccinationCard) =>
+      vaccinationCard.get({ plain: true })
+    );
+    res.render('vaccinations', {
+      vaccinationCards,
+      logged_in: false,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/appointments', async (req, res) => {
+  try {
+    const appointmentData = await Appointments.findAll({});
+
+    const appointmentCards = appointmentData.map((appointmentCard) =>
+      appointmentCard.get({ plain: true })
+    );
+    res.render('appointments', {
+      appointmentCards,
+      logged_in: false,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/exercises', async (req, res) => {
+  try {
+    const exerciseData = await Exercise.findAll({});
+
+    const exerciseCards = exerciseData.map((exerciseCard) =>
+      exerciseCard.get({ plain: true })
+    );
+    res.render('exercises', {
+      exerciseCards,
+      logged_in: false,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/notes', async (req, res) => {
+  try {
+    const noteData = await Notes.findAll({});
+
+    const noteCards = noteData.map((noteCard) => noteCard.get({ plain: true }));
+    res.render('notes', {
+      noteCards,
+      logged_in: false,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

@@ -6,8 +6,13 @@ router.post('/', async (req, res) => {
   try {
     const vaccination = await Vaccinations.create({
       details: req.body.vaccinationName,
-      date: req.body.vaccinationData,
+      date: req.body.vaccinationDate,
     });
+
+    if (req.session.user_id) {
+      res.redirect('/vaccinations');
+      return;
+    }
 
     res.status(200).json(vaccination);
   } catch (err) {
