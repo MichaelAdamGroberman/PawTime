@@ -1,16 +1,23 @@
 const router = require('express').Router();
-const { Vaccinations} = require('../../models');
+const { Vaccinations } = require('../../models');
 
 // Route for creating the new vaccination information
 router.post('/', async (req, res) => {
-    try {
-        const vaccination = await Vaccinations.create({
-            ...req.body
-        });
-        res.status(200).json(vaccination);
-    } catch (err) {
-        res.status(400).json(err);
+  try {
+    const vaccination = await Vaccinations.create({
+      details: req.body.vaccinationName,
+      date: req.body.vaccinationDate,
+    });
+
+    if (req.session.user_id) {
+      res.redirect('/vaccinations');
+      return;
     }
+
+    res.status(200).json(vaccination);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 // Route for deleting the existing vaccination information
@@ -59,7 +66,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// Route to get specfic vaccination using the id
+// Route to get specific vaccination using the id
 router.get('/:id', async (req, res) => {
     try {
         const vaccinationData = await Vaccinations.findByPk(req.params.id);

@@ -1,16 +1,24 @@
 const router = require('express').Router();
-const { Notes} = require('../../models');
+
+const { Notes } = require('../../models');
 
 // Route for creating the new note information
 router.post('/', async (req, res) => {
-    try {
-        const note = await Notes.create({
-            ...req.body
-        });
-        res.status(200).json(note);
-    } catch (err) {
-        res.status(400).json(err);
+  try {
+    const note = await Notes.create({
+      title: req.body.noteTitle,
+      date: req.body.noteDate,
+      description: req.body.noteDescription,
+    });
+
+    if (req.session.user_id) {
+      res.redirect('/notes');
+      return;
     }
+    res.status(200).json(note);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 // Route for deleting the existing note information

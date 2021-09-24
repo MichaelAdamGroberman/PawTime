@@ -2,15 +2,15 @@
   <div class="card mb-3" style="max-width: 540px;">
     <form class="card-body new-pet-form">
       <div class="form-group">
-        <label for="petName">Pet name: </label>
-        <input type="text" class="form-control" id="petName" placeholder="Enter pet name">
+        <label for="petNameInput">Pet name: </label>
+        <input type="text" class="form-control" id="petNameInput" placeholder="Enter pet name">
       </div>
 
       <div class="form-group">
         <label for="petGenderSelect">Pet Gender: </label>
         <select class="form-control" id="petGenderSelect">
-          <option>Male</option>
-          <option>Female</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
       </div>
 
@@ -23,7 +23,7 @@
       </div>
 
       <div class="form-group">
-        <label for="formGroupExampleInput">Pet Breed:</label>
+        <label for="petBreedInput">Pet Breed:</label>
         <input type="text" class="form-control" id="petBreedInput" placeholder="Enter pet breed">
       </div>
 
@@ -33,7 +33,7 @@
         <input class="form-control" id="petBirthday" name="date" placeholder="MM/DD/YYY" type="text"/>
       </div> --}}
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" id="pet-submit">Submit</button>
     </form>
   </div>
 
