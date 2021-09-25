@@ -1,37 +1,25 @@
-const noteDescriptionEl = document.querySelector('#noteDescriptionInput');
-noteDescriptionEl.addEventListener('change', function (e) {
-  noteDescription = e.target.value;
-  console.log(e.target.value);
-});
-
-const noteTitleEl = document.querySelector('#noteTitleInput');
-noteTitleEl.addEventListener('change', function (e) {
-  noteTitle = e.target.value;
-  console.log(e.target.value);
-});
-
-const noteDateEl = document.querySelector('#noteDateInput');
-noteDateEl.addEventListener('change', function (e) {
-  noteDate = e.target.value;
-  console.log(e.target.value);
-});
 
 const newnoteeFormHandler = async (event) => {
   event.preventDefault();
 
-  if ((noteDescription, noteTitle, noteDate)) {
+  const request = {
+    noteDate: getFieldValue("noteDateInput"),
+    noteTime: getFieldValue("noteTimeInput"),
+    noteTitle: getFieldValue("noteTitleInput"),
+    noteDescription: getFieldValue("noteDescriptionInput"),
+    petId: getFieldValue("petId")
+  };
+
+  if (request.noteDate && request.noteTime && request.noteTitle && request.noteDescription) {
+  
     const response = await fetch('/api/notes', {
       method: 'POST',
-      body: JSON.stringify({
-        noteDescription,
-        noteTitle,
-        noteDate,
-      }),
+      body: JSON.stringify(request),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/notes');
+      document.location.reload();
     } else {
       // TODO: change it to enter all values
       alert(response.statusText);

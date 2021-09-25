@@ -1,67 +1,62 @@
 <html lang='en'>
 
-  <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Paw Time</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel='stylesheet' href='/css/style.css'>
-  </head>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Paw Time</title>
 
-  <body>
-    <nav class='navbar navbar-expand-lg navbar-light bg-light mt-2 d-flex bd-highlight mb-3'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel='stylesheet' href='/css/style.css'>
+  
+  <script src='/js/index.js'></script>
+</head>
 
-      <a class='navbar-brand mr-auto p-2' href='/'>
-        <img src='/images/PawTime_logo.png' width='30' height='30' class='d-inline-block align-top nav-logo' alt='' />Paw Time
-      </a>
+<body>
+  <nav class='navbar navbar-expand-lg navbar-light bg-light mt-2 d-flex bd-highlight mb-3'>
+    <a class='navbar-brand mr-auto p-2' href='/'>
+      <img src='/images/PawTime_logo.png' width='30' height='30' class='d-inline-block align-top nav-logo' alt='' />Paw
+      Time
+    </a>
+
+    <ul class='nav nav-pills p-2 float-end' role='tablist'>
 
       {{#if logged_in}}
-      <ul class='nav nav-pills p-2' role='tablist'>
-        <li class="nav-item">
-          {{!-- profile will be a dropped down --}}
-          <a class="nav-link" href="/profile">Profile</a>
-        </li>
+      <li class="nav-item">
+        {{!-- profile will be a dropped down --}}
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pets</a>
-          <ul class="dropdown-menu">
-            {{!-- TODO: how to get this work --}}
-            {{#each petNames as |petName|}}
-              {{> pet-name}}
-            {{/each}}
-            <li><a href="petpage">PetPage</a></li>
-
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <button type='button' class='nav-link' id='logout'>Logout</button>
-        </li>
-      </ul>
+      <li class="nav-item">
+        <button type='button' class='nav-link' id='logout'>Logout</button>
+      </li>
       {{else}}
-      <button type='button' class='btn btn-outline-dark my-2 my-lg-0'>
-        <a href="/login">LogIn</a>
-      </button>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
       {{/if}}
-    </nav>
 
-    <main>
-      <!-- Render the sub layout -->
-      {{{body}}}
-    </main>
+    </ul>
+  </nav>
+  <main>
+    <!-- Render the sub layout -->
+    {{{body}}}
+  </main>
 
-    <footer>
+  <footer>
 
-    </footer>
-    {{#if logged_in}}
-    <script src='/js/logout.js'></script>
-    {{/if}}
+  </footer>
+  {{#if logged_in}}
+  <script src='/js/logout.js'></script>
+  {{/if}}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
 
-  </body>
+
+</body>
 
 </html>

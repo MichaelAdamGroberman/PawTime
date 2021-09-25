@@ -1,27 +1,22 @@
-const vaccinationNameEl = document.querySelector('#vaccinationNameInput');
-vaccinationNameEl.addEventListener('change', function (e) {
-  vaccinationName = e.target.value;
-  console.log(e.target.value);
-});
-
-const vaccinationDateEl = document.querySelector('#vaccinationDateInput');
-vaccinationDateEl.addEventListener('change', function (e) {
-  vaccinationDate = e.target.value;
-  console.log(e.target.value);
-});
-
 const newvaccinationFormHandler = async (event) => {
   event.preventDefault();
-
-  if ((vaccinationName, vaccinationDate)) {
+  const request = {
+    vaccinationName: getFieldValue("vaccinationNameInput"),
+    vaccinationDate: getFieldValue("vaccinationDateInput"),
+    vaccinationTime: getFieldValue("vaccinationTimeInput"),
+    petId: getFieldValue("petId")
+  };
+  if (request.vaccinationName && request.vaccinationDate && request.vaccinationTime) {
     const response = await fetch('/api/vaccinations', {
       method: 'POST',
-      body: JSON.stringify({ vaccinationName, vaccinationDate }),
-      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(request),
+      headers: {
+        'Content-Type': 'application/json'
+      },
     });
 
     if (response.ok) {
-      document.location.replace('/vaccinations');
+      document.location.reload();
     } else {
       // TODO: change it to enter all values
       alert(response.statusText);

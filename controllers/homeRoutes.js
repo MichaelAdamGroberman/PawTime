@@ -13,13 +13,98 @@ router.get('/', (req, res) => {
   res.render('landingpage');
 });
 
+// Get All details of a pet
+async function getPetDetails(petId, userId) {
+
+  let result = {};
+  // NOTE Joining the tables not working, hence getting the details separately
+  const petData = await Pet.findOne({
+    where: {
+      id: petId,
+      user_id: userId
+    }
+  });
+
+  if (petData != null) {
+    result = petData.get({
+      plain: true
+    });
+  }
+  
+  // Find all appointments
+  const petAppts = await Appointments.findAll({
+    where: {
+      pet_id: petId
+    }
+  });
+
+  if (petAppts != null) {
+    result.appointments = petAppts.map((appt) => appt.get({
+      plain: true
+    }));
+  } else {
+    result.appointments = [];
+  }
+
+  // Find all appointments
+  const petVaccines = await Vaccinations.findAll({
+    where: {
+      pet_id: petId
+    }
+  });
+
+  if (petVaccines != null) {
+    result.vaccinations = petVaccines.map((vac) => vac.get({
+      plain: true
+    }));
+  } else {
+    result.vaccinations = [];
+  }
+
+  
+  // Find all exercises
+  const petExercises = await Exercise.findAll({
+    where: {
+      pet_id: petId
+    }
+  });
+
+  if (petExercises != null) {
+    result.exercises = petExercises.map((exercise) => exercise.get({
+      plain: true
+    }));
+  } else {
+    result.exercises = [];
+  }
+  
+  // Find all exercises
+  const petNotes = await Notes.findAll({
+    where: {
+      pet_id: petId
+    }
+  });
+
+  if (petNotes != null) {
+    result.notes = petNotes.map((note) => note.get({
+      plain: true
+    }));
+  } else {
+    result.notes = [];
+  }
+
+  console.log(result);
+  return result;
+}
+
 router.get('/profile', withAuth, async (req, res) => {
   try {
+
     const petData = await Pet.findAll({
-      include: [
-        {
+      include: [{
           model: User,
-          attributes: { exclude: ['password'] },
+          attributes: {
+            exclude: ['password']
+          },
         },
         {
           model: Vaccinations,
@@ -38,16 +123,14 @@ router.get('/profile', withAuth, async (req, res) => {
           attributes: [],
         },
       ],
+      where: {
+        user_id: req.session.user_id
+      }
     });
 
-    const petCards = petData.map((petCard) => petCard.get({ plain: true }));
-
-    // const petNames = petData.map((petName) => petName.get({ plain: true }));
-    // QUESTION;
-    // res.render('main', {
-    //   petNames,
-    //   logged_in: true,
-    // });
+    const petCards = petData.map((petCard) => petCard.get({
+      plain: true
+    }));
 
     // Route for rendeing homepage
     res.render('profile', {
@@ -62,9 +145,17 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 // GET petprofile -> bring to individual pet profile
-router.get('/petprofile', async (req, res) => {
+router.get('/petprofile/:id', withAuth, async (req, res) => {
   try {
-    res.render('pets');
+
+    const petDetails = await getPetDetails(req.params.id, req.session.user_id);
+    console.log("-----" + JSON.stringify(petDetails));
+
+    res.render('pets', {
+      pet: petDetails,
+      logged_in: true,
+    });
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -76,7 +167,9 @@ router.get('/vaccinations', async (req, res) => {
     const vaccinationData = await Vaccinations.findAll({});
 
     const vaccinationCards = vaccinationData.map((vaccinationCard) =>
-      vaccinationCard.get({ plain: true })
+      vaccinationCard.get({
+        plain: true
+      })
     );
     res.render('vaccinations', {
       vaccinationCards,
@@ -93,7 +186,9 @@ router.get('/appointments', async (req, res) => {
     const appointmentData = await Appointments.findAll({});
 
     const appointmentCards = appointmentData.map((appointmentCard) =>
-      appointmentCard.get({ plain: true })
+      appointmentCard.get({
+        plain: true
+      })
     );
     res.render('appointments', {
       appointmentCards,
@@ -110,7 +205,9 @@ router.get('/exercises', async (req, res) => {
     const exerciseData = await Exercise.findAll({});
 
     const exerciseCards = exerciseData.map((exerciseCard) =>
-      exerciseCard.get({ plain: true })
+      exerciseCard.get({
+        plain: true
+      })
     );
     res.render('exercises', {
       exerciseCards,
@@ -126,7 +223,9 @@ router.get('/notes', async (req, res) => {
   try {
     const noteData = await Notes.findAll({});
 
-    const noteCards = noteData.map((noteCard) => noteCard.get({ plain: true }));
+    const noteCards = noteData.map((noteCard) => noteCard.get({
+      plain: true
+    }));
     res.render('notes', {
       noteCards,
       logged_in: false,

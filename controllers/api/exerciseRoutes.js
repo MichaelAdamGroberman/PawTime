@@ -7,7 +7,9 @@ router.post('/', async (req, res) => {
     const exercise = await Exercise.create({
       description: req.body.exerciseDescription,
       date: req.body.exerciseDate,
+      time: req.body.exerciseTime,
       duration: req.body.exerciseDuration,
+      pet_id: req.body.petId,
     });
 
     if (req.session.user_id) {

@@ -8,7 +8,9 @@ router.post('/', async (req, res) => {
     const note = await Notes.create({
       title: req.body.noteTitle,
       date: req.body.noteDate,
+      time: req.body.noteTime,
       description: req.body.noteDescription,
+      pet_id: req.body.petId
     });
 
     if (req.session.user_id) {

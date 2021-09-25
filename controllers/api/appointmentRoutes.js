@@ -1,6 +1,12 @@
 const router = require('express').Router();
-const { Appointments, Pet, User} = require('../../models');
-const { sendEventEmail } = require('../../utils/emailEvent');
+const {
+    Appointments,
+    Pet,
+    User
+} = require('../../models');
+const {
+    sendEventEmail
+} = require('../../utils/emailEvent');
 
 // Common function to get all details related to an appointment
 // and prepare the data for sending the email
@@ -27,12 +33,17 @@ async function sendEventEmailToUser(apptId) {
 router.post('/', async (req, res) => {
     try {
         const appointment = await Appointments.create({
-            ...req.body
+            date: req.body.appointmentDate,
+            time: req.body.appointmentTime,
+            address:  req.body.appointmentAddress,
+            notes: req.body.appointmentNote,
+            pet_id: req.body.petId
         });
         //Send email when creating a new appointment
         sendEventEmailToUser(appointment.id);
         res.status(200).json(appointment);
     } catch (err) {
+        console.log(err);
         res.status(400).json(err);
     }
 });

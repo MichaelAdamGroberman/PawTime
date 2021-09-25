@@ -7,6 +7,8 @@ router.post('/', async (req, res) => {
     const vaccination = await Vaccinations.create({
       details: req.body.vaccinationName,
       date: req.body.vaccinationDate,
+      time: req.body.vaccinationTime,
+      pet_id: req.body.petId
     });
 
     if (req.session.user_id) {
@@ -16,6 +18,7 @@ router.post('/', async (req, res) => {
 
     res.status(200).json(vaccination);
   } catch (err) {
+      console.log(err);
     res.status(400).json(err);
   }
 });
