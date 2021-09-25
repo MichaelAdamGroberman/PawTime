@@ -4,12 +4,12 @@
     <div class="card-body">
         <h5 class="card-title"><a href="petprofile/{{id}}">{{name}}</a></h5>
 
-        <p class="card-text">Pet Details: {{type}}, {{breed}}, {{gender}}</p>
+        <p class="card-text"><span class="card-label">Pet Details:</span> {{type}}, {{breed}}, {{gender}}</p>
 
-        <p class="card-text">Lastest Vaccination: {{lastVaccine}}</p>
+        <p class="card-text"><span class="card-label">Lastest Vaccination:</span> {{lastVaccination.details}}</p>
 
-        <p class="card-text">Lastest Exercise: {{lastExercise}}</p>
+        <p class="card-text"><span class="card-label">Lastest Exercise:</span> {{lastExercise.description}}</p>
 
-        <p class="card-text">Next Appointment: {{nextAppt}}</p>
+        <p class="card-text"><span class="card-label">Next Appointment:</span> {{nextAppointment.address}}</p> 
     </div>
 </div>

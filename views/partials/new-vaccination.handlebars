@@ -1,7 +1,6 @@
-{{!-- TODO: style this page --}}
-<div class="card">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><b>Vaccination Name:</b> {{details}}</li>
-    <li class="list-group-item"><b>Vaccination Date:</b>  {{date}}</li>
-  </ul>
+<div class="paw-pet-item"> 
+    <div class="paw-pet-item-header">{{date}} {{time}}
+        <button class="btn btn-sm btn-danger float-end" onclick="deleteExercise({{id}})">X</button>
+    </div>
+    <div class="paw-pet-item-content">{{details}}</div> 
 </div>

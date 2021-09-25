@@ -1,9 +1,6 @@
-{{!-- TODO: style this page --}}
-<div class="card">
-  <ul class="list-group list-group-flush">
-
-    <li class="list-group-item">Note Title: {{title}}</li>
-    <li class="list-group-item">Note Date: {{date}}</li>
-    <li class="list-group-item">Note Description: {{description}}</li>
-  </ul>
+<div class="paw-pet-item"> 
+    <div class="paw-pet-item-header">{{date}} {{time}} : {{title}}
+        <button class="btn btn-sm btn-danger float-end" onclick="deleteNote({{id}})">X</button>
+    </div>
+    <div class="paw-pet-item-content">{{description}}</div> 
 </div>

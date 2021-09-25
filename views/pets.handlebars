@@ -1,25 +1,32 @@
 {{!-- TODO: render each profile by id --}}
 <input type="hidden" class="form-control" id="petId" value="{{pet.id}}" />
 
-<div class="jumbotron jumbotron-fluid mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col col-lg-4">
-        <img src="/petimages/{{pet.id}}.png" class="pet-img rounded-circle" alt="Profile Image" />
-      </div>
-      <div class="col col-lg-4">
-        <h5>PET NAME: {{pet.name}}</h5> 
-      </div> 
-      <div class="col col-lg-4">
-        <h5>Gender: {{pet.gender}}</h5>
-        <h5>Type: {{pet.type}}</h5> 
-        <h5>Breed: {{pet.breed}}</h5> 
-      </div> 
+<div class="container">
+  <div class="row">
+    <div class="col col-lg-4">
+      <img src="/petimages/{{pet.id}}.png" class="pet-img rounded-circle" alt="Profile Image" />
+    </div>
+    <div class="col col-lg-4">
+      <h5>PET NAME: {{pet.name}}</h5>
+    </div>
+    <div class="col col-lg-4">
+      <h5>Gender: {{pet.gender}}</h5>
+      <br />
+      <h5>Type: {{pet.type}}</h5>
+      <br />
+      <h5>Breed: {{pet.breed}}</h5>
+      <br />
+     
+      <button class="btn btn-primary float-end" type="button" data-bs-toggle="collapse"
+        data-bs-target=".multi-collapse" aria-expanded="false"
+        aria-controls="multiCollapseExample1 multiCollapseExample2">Expand/Collapse Alls</button>
+      <span class="float-end">&nbsp;</span>
+         <button class="btn btn-primary float-end" onclick="editPet({{id}})">Edit Pet</button>
+      <span class="float-end">&nbsp;</span>      
+         <button class="btn btn-danger float-end" onclick="deletePet({{id}})">Delete Pet</button>
     </div>
   </div>
-</div>
 
-<div class="container">
   <div class="accordion" id="petAccordion">
 
     <div class="accordion-item">
@@ -29,7 +36,7 @@
           Appointments
         </button>
       </h2>
-      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+      <div id="collapseOne" class="accordion-collapse collapse multi-collapse" aria-labelledby="headingOne"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <div class="row">
@@ -53,7 +60,7 @@
           Vaccination
         </button>
       </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+      <div id="collapseTwo" class="accordion-collapse collapse multi-collapse" aria-labelledby="headingTwo"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <div class="containter">
@@ -80,7 +87,7 @@
           Exercises
         </button>
       </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+      <div id="collapseThree" class="accordion-collapse collapse multi-collapse" aria-labelledby="headingThree"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <div class="containter">
@@ -106,7 +113,7 @@
           Notes
         </button>
       </h2>
-      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+      <div id="collapseFour" class="accordion-collapse collapse multi-collapse" aria-labelledby="headingFour"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <div class="containter">

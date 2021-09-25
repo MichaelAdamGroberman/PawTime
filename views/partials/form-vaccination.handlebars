@@ -1,5 +1,5 @@
 <div class="pawtime-form-container pawtime-login">
-  <div class="pawtime-form-header">Add Vaccination</div>
+  {{!-- <div class="pawtime-form-header">Add Vaccination</div> --}}
   <div class="pawtime-form-body">
     <form class="card-body vaccination-form">
       <div class="form-row p-2">
@@ -9,17 +9,21 @@
 
       <div class="form-row p-2 datetimepicker">
         <label for="vaccinationDateInput">Vaccination Date: </label>
-        <input type="text" class="form-control" id="vaccinationDateInput" placeholder="Enter vaccination date">
-        <i class="far fa-calendar-alt"></i>
-      </div>
-      
-      <div class="form-row p-2 datetimepicker">
-        <label for="vaccinationTimeInput">Vaccination Time: </label>
-        <input type="text" class="form-control" id="vaccinationTimeInput" placeholder="Enter vaccination time">
-        <i class="far fa-calendar-alt"></i>
+        <div class="row">
+          <div class="col-6">
+            <input type="date" class="form-control" style="width:160px" id="vaccinationDateInput"
+              placeholder="Enter exercise date">
+          </div>
+          <div class="col-6">
+            <input type="time" class="form-control" style="width:160px" id="vaccinationTimeInput"
+              placeholder="Enter exercise time">
+          </div>
+        </div>
       </div>
 
-      <button type="submit" class="btn btn-primary" id="vaccination-submit">Submit</button>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary" id="vaccination-submit">+ Add Vaccination Details</button>
+      </div>
     </form>
   </div>
 </div>

@@ -30,7 +30,7 @@ async function getPetDetails(petId, userId) {
       plain: true
     });
   }
-  
+
   // Find all appointments
   const petAppts = await Appointments.findAll({
     where: {
@@ -61,7 +61,7 @@ async function getPetDetails(petId, userId) {
     result.vaccinations = [];
   }
 
-  
+
   // Find all exercises
   const petExercises = await Exercise.findAll({
     where: {
@@ -76,7 +76,7 @@ async function getPetDetails(petId, userId) {
   } else {
     result.exercises = [];
   }
-  
+
   // Find all exercises
   const petNotes = await Notes.findAll({
     where: {
@@ -108,19 +108,28 @@ router.get('/profile', withAuth, async (req, res) => {
         },
         {
           model: Vaccinations,
-          attributes: [],
+          attributes: ["details","date","time"],
+          order: [ 
+            ['date', 'DESC']
+          ]
         },
         {
           model: Exercise,
-          attributes: [],
+          attributes: ["description","date","time"],
+          order: [ 
+            ['date', 'DESC']
+          ]
         },
         {
           model: Appointments,
-          attributes: [],
+          attributes: ["address","date","time"],
+          order: [ 
+            ['date', 'DESC']
+          ]
         },
         {
           model: Notes,
-          attributes: [],
+          attributes: ["title","date","time"],
         },
       ],
       where: {
@@ -128,10 +137,23 @@ router.get('/profile', withAuth, async (req, res) => {
       }
     });
 
-    const petCards = petData.map((petCard) => petCard.get({
-      plain: true
-    }));
 
+    console.log(petData);
+    const petCards = petData.map(petCard => {
+      let result = Object.assign(petCard.get({  plain: true  }));
+      if (petCard.vaccinations.length) {
+        result.lastVaccination = petCard.vaccinations[0].get({ plain: true });
+      }
+      if (petCard.exercises.length) {
+        result.lastExercise = petCard.exercises[0].get({ plain: true });
+      }
+      if (petCard.appointments.length) {
+        result.nextAppointment = petCard.appointments[0].get({ plain: true });
+      }
+
+      return result;
+    });
+    console.log(petCards);
     // Route for rendeing homepage
     res.render('profile', {
       petCards,

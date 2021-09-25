@@ -1,30 +1,21 @@
 <div class="pawtime-form-container pawtime-login">
-  <div class="pawtime-form-header">Add Note</div>
+  {{!-- <div class="pawtime-form-header">Add Note</div> --}}
   <div class="pawtime-form-body">
     <form class="card-body note-form">
-      <div class="form-row p-2">
+      <div class="form-row p-1">
         <label for="noteTitleInput">Note Title: </label>
         <input type="text" class="form-control" id="noteTitleInput" placeholder="Enter note title">
       </div>
-
-      <div class="form-row p-2">
-        <label for="noteDateInput">Note Date: </label>
-        <input type="text" class="form-control" id="noteDateInput" placeholder="Enter note date">
-        <i class="far fa-calendar-alt"></i>
-      </div>
-
-      <div class="form-row p-2">
-        <label for="noteTimeInput">Note Time: </label>
-        <input type="text" class="form-control" id="noteTimeInput" placeholder="Enter note time">
-        <i class="far fa-calendar-alt"></i>
-      </div>
-
-      <div class="form-row p-2">
+      <!-- For notes the date & time will be the created/modified date& time and hence no 
+      form controls are needed -->
+      <div class="form-row p-1">
         <label for="noteDescriptionInput">Note Description: </label>
-        <input type="text" class="form-control" id="noteDescriptionInput" placeholder="Enter note description">
+        <textarea type="text" class="form-control" id="noteDescriptionInput"
+          placeholder="Enter note description"></textarea>
       </div>
-
-      <button type="submit" class="btn btn-primary" id="note-submit">Submit</button>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary" id="note-submit">+ Add Note</button>
+      </div>
     </form>
   </div>
 </div>

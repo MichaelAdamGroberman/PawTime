@@ -30,3 +30,4 @@ const newappointmentFormHandler = async (event) => {
 document
   .querySelector('.appointment-form')
   .addEventListener('submit', newappointmentFormHandler);
+  

@@ -22,7 +22,7 @@
        document.location.reload();
      } else {
        // TODO: change it to enter all values
-       alert(response.statusText);
+       alert(JSON.stringify(response));
      }
    }
  };

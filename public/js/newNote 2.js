@@ -1,22 +1,21 @@
+
 const newnoteeFormHandler = async (event) => {
   event.preventDefault();
 
   const request = {
-    noteDate: toDateString(new Date()), //  getFieldValue("noteDateInput"),
-    noteTime: toTimetring(new Date()), // getFieldValue("noteTimeInput"),
+    noteDate: getFieldValue("noteDateInput"),
+    noteTime: getFieldValue("noteTimeInput"),
     noteTitle: getFieldValue("noteTitleInput"),
     noteDescription: getFieldValue("noteDescriptionInput"),
     petId: getFieldValue("petId")
   };
 
   if (request.noteDate && request.noteTime && request.noteTitle && request.noteDescription) {
-
+  
     const response = await fetch('/api/notes', {
       method: 'POST',
       body: JSON.stringify(request),
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {

@@ -1,8 +1,6 @@
-<div class="card">
-  <ul class="list-group list-group-flush">
-
-    <li class="list-group-item">Appointment notes: {{details}}</li>
-    <li class="list-group-item">Appointment Date: {{date}}</li>
-    <li class="list-group-item">Appointment Address: {{address}}</li>
-  </ul>
+<div class="paw-pet-item">
+    <div class="paw-pet-item-header">Date: {{date}} | Address: {{address}}
+        <button class="btn btn-sm btn-danger float-end" onclick="deleteAppointment({{id}})">X</button>
+    </div>
+    <div class="paw-pet-item-content">{{notes}}</div>
 </div>

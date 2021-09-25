@@ -1,10 +1,6 @@
 :root {
   --theme-bg-color: #FB5C3F;
-  --theme-bg-light: #dadada;
   --theme-border-color: #FB5C3F;
-  --theme-border-dark: #FB5C3F;
-  
-  --theme-border-sub-item: #cad2e6;
   --theme-color: #FFF;
 }
 
@@ -39,7 +35,6 @@
 .home-page-fill {
   background-repeat: no-repeat;
   background-size: cover;
-  overflow: hidden;
 }
 
 .home-page-fill-1 {
@@ -80,22 +75,15 @@
   color: #fff !important;
 }
 
-.home-page-img1 {
-  float: right;
-  margin-top: 300px;
-}
-
 /************************* navbar custom css ************************/
 .navbar {
   margin-top: 0 !important;
-  background-color: #b8412c !important;
+  background-color: #FB5C3F !important;
   color: #fff !important;
-  border-bottom: 3px solid yellowgreen;
 }
 
 .navbar-brand {
   font-weight: bold;
-  color: #fff !important;
 }
 
 .nav-link {
@@ -122,7 +110,7 @@
 }
 
 .pawtime-form-body {
-  padding: 2px;
+  padding: 6px;
 }
 
 .pawtime-login {
@@ -143,7 +131,7 @@
 }
 
 .paw-pet-card {
-  width: 350px;
+  width: 350px;  
   height: 500px;
   float: left;
   border: 1px solid var(--theme-border-color);
@@ -170,26 +158,5 @@
 }
 
 .paw-pet-card .card-body {
-  padding: 6px;
-}
-
-/*************** List Item *************************/
-
-.paw-pet-item {
-  padding: 6px;
-  border: 1px solid var(--theme-border-sub-item);
-  padding: 0px; 
-  border-radius: 8px !important;
-  margin:2px;
-}
-
-.paw-pet-item-header {
-  background-color: var(--theme-border-sub-item);
-  padding: 10px;
-  font-weight: bold;
-}
-
-.paw-pet-item-content {
-  font-size: 10pt;
   padding: 6px;
 }

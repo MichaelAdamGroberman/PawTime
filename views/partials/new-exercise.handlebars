@@ -1,9 +1,6 @@
-{{!-- TODO: style this page --}}
-<div class="card">
-  <ul class="list-group list-group-flush">
-
-    <li class="list-group-item">Exercise Description: {{description}}</li>
-    <li class="list-group-item">Exercise Date: {{date}}</li>
-    <li class="list-group-item">Exercise Duration: {{duration}} minutes</li>
-  </ul>
+<div class="paw-pet-item"> 
+    <div class="paw-pet-item-header">Date: {{date}} {{time}} | Duration: {{duration}} minutes
+        <button class="btn btn-sm btn-danger float-end" onclick="deleteExercise({{id}})">X</button>
+    </div>
+    <div class="paw-pet-item-content">{{description}}</div> 
 </div>

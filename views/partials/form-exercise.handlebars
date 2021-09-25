@@ -1,5 +1,5 @@
 <div class="pawtime-form-container pawtime-login">
-  <div class="pawtime-form-header">Add Exercise</div>
+  {{!-- <div class="pawtime-form-header">Add Exercise</div> --}}
   <div class="pawtime-form-body">
     <form class="card-body exercise-form">
       <div class="form-row p-2">
@@ -8,23 +8,26 @@
       </div>
 
       <div class="form-row p-2">
-        <label for="exerciseDateInput">Exercise Date: </label>
-        <input type="text" class="form-control" id="exerciseDateInput" placeholder="Enter exercise date">
-        <i class="far fa-calendar-alt"></i>
-      </div>
-
-      <div class="form-row p-2">
-        <label for="exerciseTimeInput">Exercise Time: </label>
-        <input type="text" class="form-control" id="exerciseTimeInput" placeholder="Enter exercise time">
-        <i class="far fa-calendar-alt"></i>
+        <label for="exerciseDateInput">Exercise Date & Time: </label>
+        <div class="row">
+          <div class="col-6">
+            <input type="date" class="form-control" style="width:160px" id="exerciseDateInput"
+              placeholder="Enter exercise date">
+          </div>
+          <div class="col-6">
+            <input type="time" class="form-control" style="width:160px" id="exerciseTimeInput"
+              placeholder="Enter exercise time">
+          </div>
+        </div>
       </div>
 
       <div class="form-row p-2">
         <label for="exerciseDurationInput">Exercise Duration: (in minutes) </label>
-        <input type="text" class="form-control" id="exerciseDurationInput" placeholder="Enter exercise duration">
-      </div>      
-
-      <button type="submit" class="btn btn-primary" id="appointment-submit">Submit</button>
+        <input type="number" class="form-control" id="exerciseDurationInput" placeholder="Enter exercise duration">
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary" id="appointment-submit">+ Add Exercise Details</button>
+      </div>
     </form>
 
   </div>
