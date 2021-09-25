@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
   try {
     // finding if the (one) email entered match with the existing emails in database
     const userData = await User.findOne({ where: { email: req.body.email } });
-
+console.log(userData);
     if (!userData) {
       res
         .status(400)

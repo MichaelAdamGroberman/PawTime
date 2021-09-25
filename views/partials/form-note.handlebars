@@ -1,21 +1,32 @@
-<form class="card-body note-form">
-  <div class="form-group">
-    <label for="noteTitleInput">Note Title: </label>
-    <input type="text" class="form-control" id="noteTitleInput" placeholder="Enter note title">
-  </div>
+<div class="pawtime-form-container pawtime-login">
+  <div class="pawtime-form-header">Add Note</div>
+  <div class="pawtime-form-body">
+    <form class="card-body note-form">
+      <div class="form-row p-2">
+        <label for="noteTitleInput">Note Title: </label>
+        <input type="text" class="form-control" id="noteTitleInput" placeholder="Enter note title">
+      </div>
 
-  <div class="form-group">
-    <label for="noteDateInput" >Note Date: </label>
-      <input type="text" class="form-control" id="noteDateInput" placeholder="Enter note date"> 
-      <i class="far fa-calendar-alt"></i>
-  </div>
+      <div class="form-row p-2">
+        <label for="noteDateInput">Note Date: </label>
+        <input type="text" class="form-control" id="noteDateInput" placeholder="Enter note date">
+        <i class="far fa-calendar-alt"></i>
+      </div>
 
-  <div class="form-group">
-    <label for="noteDescriptionInput" >Note Description: </label>
-      <input type="text" class="form-control" id="noteDescriptionInput" placeholder="Enter note description">
-  </div>
+      <div class="form-row p-2">
+        <label for="noteTimeInput">Note Time: </label>
+        <input type="text" class="form-control" id="noteTimeInput" placeholder="Enter note time">
+        <i class="far fa-calendar-alt"></i>
+      </div>
 
-  <button type="submit" class="btn btn-primary" id="note-submit">Submit</button>
-</form>
+      <div class="form-row p-2">
+        <label for="noteDescriptionInput">Note Description: </label>
+        <input type="text" class="form-control" id="noteDescriptionInput" placeholder="Enter note description">
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="note-submit">Submit</button>
+    </form>
+  </div>
+</div>
 
 <script src="/js/newNote.js"></script>

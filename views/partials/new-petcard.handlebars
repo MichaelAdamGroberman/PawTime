@@ -1,12 +1,13 @@
-{{!-- COMMENT: CREATE NEW --}}
-  <div class="card mb-3" style="max-width: 540px;">
+<div class="pawtime-form-container pawtime-form-new-pet">
+  <div class="pawtime-form-header">Add New Pet</div>
+  <div class="pawtime-form-body">
     <form class="card-body new-pet-form">
-      <div class="form-group">
-        <label for="petNameInput">Pet name: </label>
+      <div class="form-row p-2">
+        <label for="petNameInput">Pet Name: </label>
         <input type="text" class="form-control" id="petNameInput" placeholder="Enter pet name">
       </div>
 
-      <div class="form-group">
+      <div class="form-row p-2">
         <label for="petGenderSelect">Pet Gender: </label>
         <select class="form-control" id="petGenderSelect">
           <option value="Male">Male</option>
@@ -14,27 +15,28 @@
         </select>
       </div>
 
-      <div class="form-group">
-        <label for="petTypeSelect">Pet type: </label>
+      <div class="form-row p-2">
+        <label for="petTypeSelect">Pet Type: </label>
         <select class="form-control" id="petTypeSelect">
           <option>Dog</option>
           <option>Cat</option>
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="form-row p-2">
         <label for="petBreedInput">Pet Breed:</label>
         <input type="text" class="form-control" id="petBreedInput" placeholder="Enter pet breed">
       </div>
 
-{{!-- QUESTION: IF ADD BIRTHDAY, NEED TO ADD JS FOR DATE PICKER --}}
-      {{!-- <div class="form-group">
+      {{!-- QUESTION: IF ADD BIRTHDAY, NEED TO ADD JS FOR DATE PICKER --}}
+      {{!-- <div class="form-row p-2">
         <label class="control-label" for="petBirthday">Birthday:</label>
-        <input class="form-control" id="petBirthday" name="date" placeholder="MM/DD/YYY" type="text"/>
+        <input class="form-control" id="petBirthday" name="date" placeholder="MM/DD/YYY" type="text" />
       </div> --}}
 
       <button type="submit" class="btn btn-primary" id="pet-submit">Submit</button>
     </form>
   </div>
+</div>
 
-  <script src="/js/newPet.js"></script>
+<script src="/js/newPet.js"></script>

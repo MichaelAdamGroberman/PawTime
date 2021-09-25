@@ -1,37 +1,25 @@
-const appointmentNoteEl = document.querySelector('#appointmentNoteInput');
-appointmentNoteEl.addEventListener('change', function (e) {
-  appointmentNote = e.target.value;
-  console.log(e.target.value);
-});
-
-const appointmentDateEl = document.querySelector('#appointmentDateInput');
-appointmentDateEl.addEventListener('change', function (e) {
-  appointmentDate = e.target.value;
-  console.log(e.target.value);
-});
-
-const appointmentAddressEl = document.querySelector('#appointmentAddressInput');
-appointmentAddressEl.addEventListener('change', function (e) {
-  appointmentAddress = e.target.value;
-  console.log(e.target.value);
-});
-
 const newappointmentFormHandler = async (event) => {
   event.preventDefault();
 
-  if ((appointmentNote, appointmentDate, appointmentAddress)) {
+  const request = {
+    appointmentDate: getFieldValue("appointmentDateInput"),
+    appointmentTime: getFieldValue("appointmentTimeInput"),
+    appointmentNote: getFieldValue("appointmentNoteInput"),
+    appointmentAddress: getFieldValue("appointmentAddressInput"),
+    petId: getFieldValue("petId")
+  };
+
+  if (request.appointmentDate && request.appointmentTime && request.appointmentNote && request.appointmentAddress) {
     const response = await fetch('/api/appointments', {
       method: 'POST',
-      body: JSON.stringify({
-        appointmentNote,
-        appointmentDate,
-        appointmentAddress,
-      }),
-      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(request),
+      headers: {
+        'Content-Type': 'application/json'
+      },
     });
 
     if (response.ok) {
-      document.location.replace('/appointments');
+      document.location.reload();
     } else {
       // TODO: change it to enter all values
       alert(response.statusText);

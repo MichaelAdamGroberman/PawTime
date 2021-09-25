@@ -1,3 +1,9 @@
+:root {
+  --theme-bg-color: #FB5C3F;
+  --theme-border-color: #FB5C3F;
+  --theme-color: #FFF;
+}
+
 .v-divider {
   margin-left: 5px;
   margin-right: 5px;
@@ -14,4 +20,143 @@
 /* nav */
 .nav-logo {
   margin-right: 10px;
+}
+
+/************************* main background ************************/
+.home-page-fill-container {
+  width: 100%;
+  min-height: 2000px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -100;
+}
+
+.home-page-fill {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-page-fill-1 {
+  background-image: url(../images/homepage-bg-1.png);
+  min-height: 800px;
+}
+
+.home-page-fill-2 {
+  background-image: url(../images/homepage-bg-2.png);
+  min-height: 1400px;
+}
+
+.home-page-fill-3 {
+  background-image: url(../images/homepage-bg-3.png);
+  min-height: 1400px;
+}
+
+.home-page-content {
+  margin: 40px 0 0 20px;
+  padding: 5px;
+  float: left;
+  width: 850px;
+}
+
+.home-page-content-head {
+  font-family: "Times New Roman";
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff !important;
+}
+
+.home-page-content-text {
+  font-family: "Open Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff !important;
+}
+
+/************************* navbar custom css ************************/
+.navbar {
+  margin-top: 0 !important;
+  background-color: #FB5C3F !important;
+  color: #fff !important;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+/************************* form custom css ************************/
+.pawtime-form-container {
+  border: 1px solid var(--theme-border-color);
+  border-radius: 8px;
+  padding: 0 !important;
+  margin: 6px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pawtime-form-header {
+  background-color: var(--theme-bg-color);
+  color: var(--theme-color) !important;
+  padding: 8px;
+  font-weight: 500;
+  font-size: 14pt;
+}
+
+.pawtime-form-body {
+  padding: 6px;
+}
+
+.pawtime-login {
+  width: 500px;
+}
+
+.pawtime-form-new-pet {
+  width: 380px;
+  float: right;
+}
+
+/************************* pet card css ************************/
+.paw-pet-card-container {
+  overflow: visible;
+  padding: 10px;
+  display: block;
+  margin: 5px;
+}
+
+.paw-pet-card {
+  width: 350px;  
+  height: 500px;
+  float: left;
+  border: 1px solid var(--theme-border-color);
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.paw-pet-card .pet-img,
+.pet-img {
+  width: 300px;
+  height: 250px;
+  padding: 4px;
+}
+
+.paw-pet-card .card-title {
+  font-size: 14pt;
+  font-weight: bold;
+  padding: 4px 8px;
+}
+
+.paw-pet-card .card-text {
+  font-size: 12pt;
+  padding: 4px 8px;
+}
+
+.paw-pet-card .card-body {
+  padding: 6px;
 }

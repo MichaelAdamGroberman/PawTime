@@ -1,19 +1,15 @@
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-    {{!-- TODO: resize image --}}
-    <img src="#" class="card-img-top" alt="logo">
+<div class="paw-pet-card">
+    <img src="./petimages/{{id}}.png" class="pet-img" alt="Profile Image">
 
     <div class="card-body">
-        {{!-- TODO: link to the below information through petcard rename the following--}}
-        <h5 class="card-title"><a href="petprofile">{{name}}</a></h5>
+        <h5 class="card-title"><a href="petprofile/{{id}}">{{name}}</a></h5>
 
-        <p class="card-text">Pet Description: {{vaccination}}</p>
+        <p class="card-text">Pet Details: {{type}}, {{breed}}, {{gender}}</p>
 
-        <p class="card-text">Lastest Vaccination: {{vaccination}}</p>
+        <p class="card-text">Lastest Vaccination: {{lastVaccine}}</p>
 
-        <p class="card-text">Lastest Exercises: {{walks}}</p>
+        <p class="card-text">Lastest Exercise: {{lastExercise}}</p>
 
-        <p class="card-text">Next Appointment: {{vetvisit}}</p>
-    </div>
+        <p class="card-text">Next Appointment: {{nextAppt}}</p>
     </div>
 </div>
