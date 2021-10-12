@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-const compression = require('compression');
 const routes = require('./controllers');
 //Importing the handlebar package and helper codes
 const exphbs = require('express-handlebars');
@@ -14,7 +13,6 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(compression());
 // Added 
 const hbs = exphbs.create({ helpers });
 
