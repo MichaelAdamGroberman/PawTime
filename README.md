@@ -74,3 +74,5 @@ THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am signed out of the site automatically 
 ```
+## Deployed App
+https://mysterious-waters-58125.herokuapp.com/
